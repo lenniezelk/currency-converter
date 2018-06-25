@@ -19,6 +19,7 @@
   },
   "scripts": {
     "lint": "eslint src/**/*",
-    "prettier": "prettier --single-quote --trailing-comma=all --write src/**/*"
+    "prettier": "prettier --single-quote --trailing-comma=all --write src/**/*",
+    "sass": "node-sass src/**/* -o build/styles/styles.css"
   }
 }
