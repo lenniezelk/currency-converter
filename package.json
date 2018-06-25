@@ -20,7 +20,7 @@
   "scripts": {
     "lint": "eslint src/**/*",
     "prettier": "prettier --single-quote --trailing-comma=all --write src/**/*",
-    "sass": "node-sass src/**/* -o build/css/styles.css",
+    "sass": "node-sass src/styles/main.scss build/css/styles.css",
     "babel": "babel src --out-file build/js/app.js"
   }
 }
