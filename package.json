@@ -2,11 +2,9 @@
   "name": "currency-converter",
   "version": "1.0.0",
   "description": "Currency converter for ALC 7 Days coding challenge",
-  "main": "src/app.js",
   "repository": "git@github.com:lenniezelk/currency-converter.git",
   "author": "Leonard Kioi <lenny.kinyanjui.lk@gmail.com>",
   "license": "MIT",
-  "private": false,
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
