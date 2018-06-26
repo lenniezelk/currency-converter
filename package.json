@@ -21,12 +21,12 @@
     "prettier": "^1.13.5",
     "sass-loader": "^7.0.3",
     "webpack": "^4.12.1",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
   },
   "scripts": {
-    "lint": "eslint src/**/*",
     "prettier": "prettier --single-quote --trailing-comma=all --write src/**/*",
-    "sass": "node-sass src/styles/main.scss build/css/styles.css",
-    "babel": "babel src --out-file build/js/app.js"
+    "build": "webpack",
+    "start": "webpack-dev-server --open"
   }
 }

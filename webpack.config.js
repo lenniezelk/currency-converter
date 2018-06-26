@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   output: {
     path: path.resolve(__dirname, 'build', 'js'),
-    filename: 'app.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
@@ -33,5 +33,9 @@ module.exports = {
           filename: "styles.css",
           path: path.resolve(__dirname, 'build', 'css')
       })
-  ]
+  ],
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './build'
+  }
 };
