@@ -15,3 +15,15 @@ h2 {
   font-weight: bold;
   font-size: 20px;
 }
+
+.app {
+  margin: 30px 0;
+
+  .row {
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-size: 16px;
+  }
+}
