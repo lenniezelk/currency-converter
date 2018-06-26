@@ -214,3 +214,7 @@ h2 {
     margin-bottom: 20px; }
   .app label {
     font-size: 16px; }
+  .app button {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 10px; }
