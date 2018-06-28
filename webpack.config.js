@@ -3,7 +3,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
-const PrettierPlugin = require("prettier-webpack-plugin");
 
 module.exports = {
   output: {
@@ -31,7 +30,6 @@ module.exports = {
     ]
   },
   plugins: [
-      new PrettierPlugin(),
       new MiniCssExtractPlugin({
           // Options similar to the same options in webpackOptions.output
           // both options are optional
