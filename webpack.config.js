@@ -1,5 +1,8 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   output: {
@@ -32,10 +35,17 @@ module.exports = {
           // both options are optional
           filename: "styles.css",
           path: path.resolve(__dirname, 'build', 'css')
-      })
+      }),
+      new CleanWebpackPlugin(['build']),
+      new HtmlWebpackPlugin({
+        title: 'Currency Converter',
+        template: 'index.html'
+      }),
+      new webpack.HotModuleReplacementPlugin()
   ],
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './build'
+    contentBase: './build',
+    hot: true
   }
 };
