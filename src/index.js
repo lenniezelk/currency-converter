@@ -1,1 +1,3 @@
-import {getCounties} from './countries/api';
+import getCountries from './countries/api';
+
+getCountries();

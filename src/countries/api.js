@@ -1,5 +1,5 @@
 import settings from '../config/settings';
 
-export function getCountries() {
+export default function getCountries() {
   return fetch(`${settings.API_BASE_URL}/countries`);
 }
