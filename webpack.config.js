@@ -33,7 +33,7 @@ module.exports = {
       new MiniCssExtractPlugin({
           // Options similar to the same options in webpackOptions.output
           // both options are optional
-          filename: "styles.css",
+          filename: "[name].[hash].css",
           path: path.resolve(__dirname, 'build', 'css')
       }),
       new CleanWebpackPlugin(['build']),
