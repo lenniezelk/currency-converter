@@ -1,6 +1,10 @@
 import getCountries from './countries/api';
 import './styles/main.scss';
 
+function showError(message) {
+  console.error(message);
+}
+
 function countriesCompareFunc(a, b) {
   if (a.currencyName < b.currencyName) return -1;
   if (a.currencyName > b.currencyName) return 1;
@@ -27,8 +31,25 @@ function setCountries() {
   });
 }
 
+function convert() {
+  const amountField = document.querySelector('#app__amount');
+  let amount = amountField.value;
+  amount = parseFloat(amount);
+  if (Number.isNaN(amount)) {
+    showError('Enter a valid value for amount below');
+  }
+}
+
+function setConvertEventHandler() {
+  const convertButton = document.querySelector('button');
+  convertButton.addEventListener('click', () => {
+    convert();
+  });
+}
+
 function start() {
   setCountries();
+  setConvertEventHandler();
 }
 
 start();
