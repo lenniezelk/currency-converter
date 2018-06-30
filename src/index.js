@@ -49,6 +49,12 @@ function setCountries() {
   });
 }
 
+function calculateResult(amount, rate) {
+  const resultField = document.querySelector('#result');
+  const result = (rate * amount).toFixed(2);
+  resultField.textContent = result;
+}
+
 function convert() {
   clearErrors();
   clearResult();
@@ -70,9 +76,7 @@ function convert() {
   const currencyStr = `${from}_${to}`;
   convertCurrency(currencyStr).then(response => response.json()).then((rates) => {
     const rate = rates[currencyStr].val;
-    const resultField = document.querySelector('#result');
-    const result = (rate * amount).toFixed(2);
-    resultField.textContent = result;
+    calculateResult(amount, rate);
     addRatesToDB({ currencyStr, rate });
   });
 }
