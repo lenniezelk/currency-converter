@@ -51,7 +51,15 @@ function setCountries() {
 
 function createDb() {
   idb.open('currencyConverter', 1, (upgradeDb) => {
-    upgradeDb.createObjectStore('rates');
+    upgradeDb.createObjectStore('rates', { keyPath: 'currencyStr' });
+  });
+}
+
+function addRatesToDB(rate) {
+  idb.open('currencyConverter').then((db) => {
+    const tx = db.transaction('rates', 'readwrite');
+    const store = tx.objectStore('rates');
+    store.put(rate);
   });
 }
 
@@ -79,6 +87,7 @@ function convert() {
     const resultField = document.querySelector('#result');
     const result = (rate * amount).toFixed(2);
     resultField.textContent = result;
+    addRatesToDB({ currencyStr, rate });
   });
 }
 
