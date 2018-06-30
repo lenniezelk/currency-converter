@@ -3,7 +3,10 @@ import getCountries from './countries/api';
 import './styles/main.scss';
 
 function showError(message) {
-  console.error(message);
+  const errorDiv = document.createElement('div');
+  errorDiv.textContent = message;
+  const errorContainer = document.querySelector('#error');
+  errorContainer.appendChild(errorDiv);
 }
 
 function countriesCompareFunc(a, b) {
