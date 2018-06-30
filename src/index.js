@@ -56,6 +56,16 @@ function calculateResult(amount, rate) {
   resultField.textContent = result;
 }
 
+function handleConvertFailure(currencyStr, amount) {
+  getRateFromDB(currencyStr).then((res) => {
+    if (typeof res !== 'undefined') {
+      calculateResult(amount, res.rate);
+    } else {
+      showError('Failed to fetch exchange rates.');
+    }
+  });
+}
+
 function convert() {
   clearErrors();
   clearResult();
@@ -75,16 +85,18 @@ function convert() {
     return;
   }
   const currencyStr = `${from}_${to}`;
-  convertCurrency(currencyStr).then(response => response.json(), () => {
-    getRateFromDB(currencyStr).then((res) => {
-      if (typeof res !== 'undefined') {
-        calculateResult(amount, res.rate);
-      }
-    });
+  convertCurrency(currencyStr).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    return handleConvertFailure(currencyStr, amount);
   }).then((rates) => {
     const rate = rates[currencyStr].val;
     calculateResult(amount, rate);
     addRatesToDB({ currencyStr, rate });
+  }).catch(() => {
+    showError('Kindly check your network connection.');
+    handleConvertFailure(currencyStr, amount);
   });
 }
 
