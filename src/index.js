@@ -1,6 +1,6 @@
-import idb from 'idb';
 import convertCurrency from './conversion/api';
 import getCountries from './countries/api';
+import { createDb, addRatesToDB } from './db';
 import './styles/main.scss';
 
 
@@ -46,20 +46,6 @@ function setCountries() {
       toSelect.appendChild(createOptionFromCountry(value));
       fromSelect.appendChild(createOptionFromCountry(value));
     });
-  });
-}
-
-function createDb() {
-  idb.open('currencyConverter', 1, (upgradeDb) => {
-    upgradeDb.createObjectStore('rates', { keyPath: 'currencyStr' });
-  });
-}
-
-function addRatesToDB(rate) {
-  idb.open('currencyConverter').then((db) => {
-    const tx = db.transaction('rates', 'readwrite');
-    const store = tx.objectStore('rates');
-    store.put(rate);
   });
 }
 
