@@ -13,3 +13,11 @@ export function addRatesToDB(rate) {
     store.put(rate);
   });
 }
+
+export function getRateFromDB(currencyStr) {
+  return idb.open('currencyConverter').then((db) => {
+    const tx = db.transaction('rates', 'readwrite');
+    const store = tx.objectStore('rates');
+    return store.get(currencyStr);
+  });
+}

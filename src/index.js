@@ -1,6 +1,6 @@
 import convertCurrency from './conversion/api';
 import getCountries from './countries/api';
-import { createDb, addRatesToDB } from './db';
+import { createDb, addRatesToDB, getRateFromDB } from './db';
 import './styles/main.scss';
 
 
@@ -74,7 +74,13 @@ function convert() {
     return;
   }
   const currencyStr = `${from}_${to}`;
-  convertCurrency(currencyStr).then(response => response.json()).then((rates) => {
+  convertCurrency(currencyStr).then(response => response.json(), () => {
+    getRateFromDB(currencyStr).then((res) => {
+      if (typeof res !== 'undefined') {
+        calculateResult(amount, res.rate);
+      }
+    });
+  }).then((rates) => {
     const rate = rates[currencyStr].val;
     calculateResult(amount, rate);
     addRatesToDB({ currencyStr, rate });
