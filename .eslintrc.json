@@ -3,6 +3,7 @@
     "globals": {
         "fetch": false,
         "document": false,
-        "self": false
+        "self": true,
+        "caches": false
     }
 }
