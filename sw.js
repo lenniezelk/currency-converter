@@ -4,9 +4,9 @@ const cacheName = 'currency-converter-v1';
 // eslint-disable-next-line no-restricted-globals
 self.addEventListener('install', event => event.waitUntil(
   caches.open(cacheName).then(cache => cache.addAll([
-    '/',
-    '/main.js',
-    '/main.css',
+    '/currency-converter/',
+    '/currency-converter/main.js',
+    '/currency-converter/main.css',
     'https://fonts.googleapis.com/css?family=Open+Sans:300,400,700',
     'https://free.currencyconverterapi.com/api/v5/countries',
   ])),
