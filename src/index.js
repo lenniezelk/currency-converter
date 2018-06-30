@@ -110,8 +110,8 @@ function setConvertEventHandler() {
 function start() {
   registerServiceWorker();
   createDb();
-  setCountries();
   setConvertEventHandler();
+  setCountries();
 }
 
 start();
