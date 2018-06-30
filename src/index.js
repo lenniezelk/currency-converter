@@ -33,10 +33,19 @@ function setCountries() {
 
 function convert() {
   const amountField = document.querySelector('#app__amount');
+  const fromSelect = document.querySelector('#app__from');
+  const toSelect = document.querySelector('#app__to');
+
   let amount = amountField.value;
   amount = parseFloat(amount);
   if (Number.isNaN(amount)) {
     showError('Enter a valid value for amount below');
+    return;
+  }
+  const from = fromSelect.value;
+  const to = toSelect.value;
+  if (from === '' || to === '') {
+    showError('Select a valid value for from currency and to currency');
   }
 }
 
