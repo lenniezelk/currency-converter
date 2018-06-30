@@ -1,3 +1,4 @@
+import idb from 'idb';
 import convertCurrency from './conversion/api';
 import getCountries from './countries/api';
 import './styles/main.scss';
@@ -48,6 +49,12 @@ function setCountries() {
   });
 }
 
+function createDb() {
+  idb.open('currencyConverter', 1, (upgradeDb) => {
+    upgradeDb.createObjectStore('rates');
+  });
+}
+
 function convert() {
   clearErrors();
   clearResult();
@@ -83,6 +90,7 @@ function setConvertEventHandler() {
 }
 
 function start() {
+  createDb();
   setCountries();
   setConvertEventHandler();
 }
