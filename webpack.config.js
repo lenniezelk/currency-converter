@@ -5,10 +5,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: {
-    main: './src/index.js',
-    sw: './src/sw.js'
-  },
   output: {
     path: path.resolve(__dirname, 'build', 'js'),
     filename: '[name].js'
