@@ -22,6 +22,14 @@ function handleUpdateAvailable(worker) {
   setActionButtonEvents(worker);
 }
 
+function trackInstalling(worker) {
+  worker.addEventListener('statechange', () => {
+    if (worker.state === 'installed') {
+      handleUpdateAvailable(worker);
+    }
+  });
+}
+
 export default function registerServiceWorker() {
   if (!window.navigator.serviceWorker) return;
 
@@ -31,17 +39,16 @@ export default function registerServiceWorker() {
     }
 
     if (reg.waiting) {
-      console.log('service worker ready');
       handleUpdateAvailable(reg.waiting);
       return;
     }
 
     if (reg.installing) {
-      console.log('installing');
+      trackInstalling(reg.installing);
       return;
     }
 
-    reg.addEventListener('updatefound', () => console.log('installing'));
+    reg.addEventListener('updatefound', () => trackInstalling(reg.installing));
   });
 
   window.navigator.serviceWorker.addEventListener('controllerchange', () => window.location.reload());
