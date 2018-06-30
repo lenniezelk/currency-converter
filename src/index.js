@@ -3,9 +3,9 @@ import getCountries from './countries/api';
 import './styles/main.scss';
 
 function showError(message) {
+  const errorContainer = document.querySelector('#error');
   const errorDiv = document.createElement('div');
   errorDiv.textContent = message;
-  const errorContainer = document.querySelector('#error');
   errorContainer.appendChild(errorDiv);
 }
 
