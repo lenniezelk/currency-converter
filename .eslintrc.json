@@ -1,9 +1,7 @@
 {
     "extends": "airbnb-base",
-    "globals": {
-        "fetch": false,
-        "document": false,
-        "self": true,
-        "caches": false
+    "env": {
+      "browser": true,
+      "worker": true
     }
 }

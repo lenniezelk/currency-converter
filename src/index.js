@@ -1,6 +1,7 @@
 import convertCurrency from './conversion/api';
 import getCountries from './countries/api';
 import { createDb, addRatesToDB, getRateFromDB } from './db';
+import registerServiceWorker from './service';
 import './styles/main.scss';
 
 
@@ -95,6 +96,7 @@ function setConvertEventHandler() {
 }
 
 function start() {
+  registerServiceWorker();
   createDb();
   setCountries();
   setConvertEventHandler();
