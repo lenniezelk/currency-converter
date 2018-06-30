@@ -74,7 +74,7 @@ function convert() {
   const toSelect = document.querySelector('#app__to');
   let amount = amountField.value;
   amount = parseFloat(amount);
-  if (Number.isNaN(amount)) {
+  if (Number.isNaN(amount) || amount < 0) {
     showError('Enter a valid value for amount below');
     return;
   }
@@ -101,7 +101,7 @@ function convert() {
 }
 
 function setConvertEventHandler() {
-  const convertButton = document.querySelector('button');
+  const convertButton = document.querySelector('#convert');
   convertButton.addEventListener('click', () => {
     convert();
   });

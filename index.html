@@ -19,7 +19,14 @@
     <h2>Convert one currency to another</h2>
     <section class="app">
       <div class="row">
-        <div id="error" />
+        <div id="action">
+          <div id="action__message">An update is available</div>
+          <button id="action__reload">Reload</button>
+          <button id="action__dismiss">Dismiss</button>
+        </div>
+      </div>
+      <div class="row">
+        <div id="error"></div>
       </div>
       <div class="row">
         <label for="app__amount">Amount:</label>
@@ -34,7 +41,7 @@
         <select id="app__to" required ></select>
       </div>
       <div class="row">
-        <button>Convert</button>
+        <button id="convert">Convert</button>
       </div>
       <div class="row">
         <div id="result"></div>
