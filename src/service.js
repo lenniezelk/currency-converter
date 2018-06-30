@@ -33,7 +33,7 @@ function trackInstalling(worker) {
 export default function registerServiceWorker() {
   if (!window.navigator.serviceWorker) return;
 
-  window.navigator.serviceWorker.register('/sw.js').then((reg) => {
+  window.navigator.serviceWorker.register('/currency-converter/sw.js').then((reg) => {
     if (!window.navigator.serviceWorker.controller) {
       return;
     }
