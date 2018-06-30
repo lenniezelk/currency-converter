@@ -6,7 +6,7 @@ const webpack = require('webpack');
 
 module.exports = {
   output: {
-    path: path.resolve(__dirname, 'build', 'js'),
+    path: path.resolve(__dirname, 'docs'),
     filename: '[name].js'
   },
   module: {
@@ -34,12 +34,12 @@ module.exports = {
           // Options similar to the same options in webpackOptions.output
           // both options are optional
           filename: "[name].css",
-          path: path.resolve(__dirname, 'build', 'css')
+          path: path.resolve(__dirname, 'docs')
       }),
-      new CleanWebpackPlugin(['build']),
+      new CleanWebpackPlugin(['docs']),
       new HtmlWebpackPlugin({
         title: 'Currency Converter',
-        template: 'index.html'
+        template: './index.html'
       }),
       new webpack.HotModuleReplacementPlugin()
   ],

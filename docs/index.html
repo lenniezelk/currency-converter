@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Currency Converter</title>
+  <meta name="description" content="Currency converter for ALC 7 Days coding challenge">
+  <meta name="author" content="Leonard Kioi <lenny.kinyanjui.lk@gmail.com>">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+<link href="main.css" rel="stylesheet"></head>
+
+<body>
+  <section class="container">
+    <h1>Currency Converter</h1>
+    <h2>Convert one currency to another</h2>
+    <section class="app">
+      <div class="row">
+        <div id="action">
+          <div id="action__message">An update is available</div>
+          <button id="action__reload">Reload</button>
+          <button id="action__dismiss">Dismiss</button>
+        </div>
+      </div>
+      <div class="row">
+        <div id="error"></div>
+      </div>
+      <div class="row">
+        <label for="app__amount">Amount:</label>
+        <input type="number" id="app__amount" autofocus required />
+      </div>
+      <div class="row">
+        <label for="app__from">From:</label>
+        <select id="app__from" required ></select>
+      </div>
+      <div class="row">
+        <label for="app__to">To:</label>
+        <select id="app__to" required ></select>
+      </div>
+      <div class="row">
+        <button id="convert">Convert</button>
+      </div>
+      <div class="row">
+        <div id="result"></div>
+      </div>
+    </section>
+  </section>
+<script type="text/javascript" src="main.js"></script></body>
+</html>
