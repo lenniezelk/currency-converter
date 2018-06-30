@@ -2,6 +2,19 @@ import convertCurrency from './conversion/api';
 import getCountries from './countries/api';
 import './styles/main.scss';
 
+
+function clearResult() {
+  const resultField = document.querySelector('#result');
+  resultField.textContent = '';
+}
+
+function clearErrors() {
+  const errorContainer = document.querySelector('#error');
+  while (errorContainer.firstChild) {
+    errorContainer.removeChild(errorContainer.firstChild);
+  }
+}
+
 function showError(message) {
   const errorContainer = document.querySelector('#error');
   const errorDiv = document.createElement('div');
@@ -36,6 +49,8 @@ function setCountries() {
 }
 
 function convert() {
+  clearErrors();
+  clearResult();
   const amountField = document.querySelector('#app__amount');
   const fromSelect = document.querySelector('#app__from');
   const toSelect = document.querySelector('#app__to');
