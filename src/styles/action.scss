@@ -1,0 +1,16 @@
+#action {
+  border: 1px solid #0f0;
+  padding: 2px;
+  display: none;
+
+  &__reload, &__dismiss {
+    padding: 5px;
+    font-weight: normal;
+    font-size: 14px;
+  }
+
+  &__message {
+    font-weight: bold;
+    margin: 10px 0;
+  }
+}
